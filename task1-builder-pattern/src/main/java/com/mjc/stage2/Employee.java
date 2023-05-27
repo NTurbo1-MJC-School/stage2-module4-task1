@@ -73,39 +73,42 @@ public class Employee {
 
         private Employee employee;
 
-        public Employee build() {
+        public EmployeeBuilder() {
             this.employee = new Employee();
+        }
+
+        public Employee build() {
             return this.employee;
         }
 
-        public Employee setName(String name) {
+        public EmployeeBuilder setName(String name) {
             this.employee.setName(name);
-            return this.employee;
+            return this;
         }
 
-        public Employee setLastName(String lastName) {
+        public EmployeeBuilder setLastName(String lastName) {
             this.employee.setLastName(lastName);
-            return this.employee;
+            return this;
         }
 
-        public Employee setPosition(String position) {
+        public EmployeeBuilder setPosition(String position) {
             this.employee.setPosition(position);
-            return this.employee;
+            return this;
         }
 
-        public Employee setPhone(String phone) {
+        public EmployeeBuilder setPhone(String phone) {
             this.employee.setPhone(phone);
-            return this.employee;
+            return this;
         }
 
-        public Employee setEmail(String email) {
+        public EmployeeBuilder setEmail(String email) {
             this.employee.setEmail(email);
-            return this.employee;
+            return this;
         }
 
-        public Employee setCarNumber(String carNumber) {
+        public EmployeeBuilder setCarNumber(String carNumber) {
             this.employee.setCarNumber(carNumber);
-            return this.employee;
+            return this;
         }
     }
 }
