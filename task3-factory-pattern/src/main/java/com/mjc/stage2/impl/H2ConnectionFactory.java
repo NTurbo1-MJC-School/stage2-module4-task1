@@ -15,23 +15,21 @@ public class H2ConnectionFactory implements ConnectionFactory {
     @Override
     public Connection createConnection() {
         Connection conn = null;
+        File propsFile = new File("src/main/resources/h2database.properties");
 
-        try {
-            File propsFile = new File("/src/main/resources/h2database.properties");
-            FileInputStream fis = new FileInputStream(propsFile.getAbsolutePath());
+        try (FileInputStream fis = new FileInputStream(propsFile.getAbsolutePath())){
             Properties props = new Properties();
             props.load(fis);
 
-            //String driver = props.getProperty("jdbc_driver");
             String url = props.getProperty("db_url");
             String user = props.getProperty("user");
             String password = props.getProperty("password");
 
             conn = DriverManager.getConnection(url, user, password);
-            fis.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return conn;
     }
 }
