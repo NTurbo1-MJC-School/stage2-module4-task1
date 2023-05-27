@@ -73,8 +73,9 @@ public class Employee {
 
         private Employee employee;
 
-        public void build() {
+        public Employee build() {
             this.employee = new Employee();
+            return this.employee;
         }
 
         public Employee setName(String name) {
