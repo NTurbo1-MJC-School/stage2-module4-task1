@@ -2,6 +2,7 @@ package com.mjc.stage2.impl;
 
 import com.mjc.stage2.ConnectionFactory;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,7 +17,8 @@ public class H2ConnectionFactory implements ConnectionFactory {
         Connection conn = null;
 
         try {
-            FileInputStream fis = new FileInputStream("/src/main/resources/h2database.properties");
+            File propsFile = new File("/src/main/resources/h2database.properties");
+            FileInputStream fis = new FileInputStream(propsFile.getAbsolutePath());
             Properties props = new Properties();
             props.load(fis);
 
